@@ -6,6 +6,9 @@
   "author": "andytango",
   "license": "MIT",
   "scripts": {
+    "build": "yarn clean && yarn compile",
+    "clean": "touch ./dist/tmp && rimraf ./dist/*",
+    "compile": "tsc",
     "test": "jest",
     "test:watch": "jest --watch"
   },
