@@ -1,11 +1,12 @@
 {
-  "name": "event-emitter-lite",
+  "name": "ts-event-emitter",
   "version": "1.0.0",
   "description": "Minimal event emitter with typescript",
   "main": "dist/index.js",
   "author": "andytango",
   "license": "MIT",
   "scripts": {
+    "prepublishOnly": "yarn build",
     "build": "yarn clean && yarn compile",
     "clean": "touch ./dist/tmp && rimraf ./dist/*",
     "compile": "tsc",
