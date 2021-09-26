@@ -6,6 +6,7 @@
   "author": "andytango",
   "license": "MIT",
   "private": false,
+  "homepage": "https://github.com/andytango/ts-event-emitter",
   "scripts": {
     "prepublishOnly": "yarn build",
     "build": "yarn clean && yarn compile",
