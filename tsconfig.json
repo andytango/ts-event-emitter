@@ -9,9 +9,8 @@
     "module": "es6",
     "moduleResolution": "node",
     "target": "es2017",
-    "declaration": true,
+    "declaration": true
   },
-  "include": [
-    "./src/**/*"
-  ]
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }
