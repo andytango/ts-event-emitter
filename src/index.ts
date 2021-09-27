@@ -8,7 +8,7 @@ export interface EventEmitter<T extends EventMap> {
   once: <K extends keyof T>(eventType: K, handler: EventHandler<T, K>) => void;
   emit: <K extends keyof T>(
     eventType: keyof T,
-    ...params: OptionalArg<K>
+    ...params: OptionalArg<Event<T, K>>
   ) => void;
 }
 
@@ -31,7 +31,7 @@ type EventHandler<T extends EventMap, K extends EventType<T>> = (
   ...params: OptionalArg<Event<T, K>>
 ) => void;
 
-export function createEventEmitter<T extends EventMap>() {
+export function createEventEmitter<T extends EventMap>(): EventEmitter<T> {
   const listeners = {} as ListenerStore<T>;
   let idSeq = 0;
 

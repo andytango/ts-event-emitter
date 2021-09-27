@@ -1,4 +1,4 @@
-import { createEventEmitter } from ".";
+import { createEventEmitter, EventEmitter } from ".";
 import "jest-extended";
 
 type ExampleEvents = {
@@ -6,9 +6,13 @@ type ExampleEvents = {
   exampleWithPayload: { value: string };
 };
 
+function createExampleEventEmitter(): EventEmitter<ExampleEvents> {
+  return createEventEmitter<ExampleEvents>();
+}
+
 describe("createEventEmitter", () => {
   it("listens and emits", async () => {
-    const emitter = createEventEmitter<ExampleEvents>();
+    const emitter = createExampleEventEmitter();
     const handler = jest.fn();
 
     emitter.on("exampleType", handler);
@@ -18,7 +22,7 @@ describe("createEventEmitter", () => {
   });
 
   it("emits the event payload", async () => {
-    const emitter = createEventEmitter<ExampleEvents>();
+    const emitter = createExampleEventEmitter();
     const handler = jest.fn();
 
     emitter.on("exampleWithPayload", handler);
@@ -28,7 +32,7 @@ describe("createEventEmitter", () => {
   });
 
   it("emits in the order listeners were added", async () => {
-    const emitter = createEventEmitter<ExampleEvents>();
+    const emitter = createExampleEventEmitter();
     const handler1 = jest.fn();
     const handler2 = jest.fn();
 
@@ -42,7 +46,7 @@ describe("createEventEmitter", () => {
   });
 
   it("removes listeners", async () => {
-    const emitter = createEventEmitter<ExampleEvents>();
+    const emitter = createExampleEventEmitter();
     const handler1 = jest.fn();
     const handler2 = jest.fn();
 
@@ -56,7 +60,7 @@ describe("createEventEmitter", () => {
   });
 
   it("removes listeners", async () => {
-    const emitter = createEventEmitter<ExampleEvents>();
+    const emitter = createExampleEventEmitter();
 
     expect(() =>
       emitter.off("exampleType", 1)
@@ -66,7 +70,7 @@ describe("createEventEmitter", () => {
   });
 
   it("listens once", async () => {
-    const emitter = createEventEmitter<ExampleEvents>();
+    const emitter = createExampleEventEmitter();
     const handler1 = jest.fn();
 
     emitter.once("exampleWithPayload", handler1);
