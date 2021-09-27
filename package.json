@@ -1,8 +1,9 @@
 {
   "name": "@andytango/ts-event-emitter",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Minimal event emitter with typescript",
   "main": "dist/index.js",
+  "types": "./dist/index.d.ts",
   "author": "andytango",
   "license": "MIT",
   "private": false,

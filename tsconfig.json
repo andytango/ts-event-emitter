@@ -6,9 +6,9 @@
     "esModuleInterop": true,
     "noImplicitReturns": true,
     "noImplicitAny": true,
-    "module": "es6",
+    "module": "commonjs",
     "moduleResolution": "node",
-    "target": "es2017",
+    "target": "ES6",
     "declaration": true
   },
   "include": ["./src/**/*"],
