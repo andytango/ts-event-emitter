@@ -1,8 +1,10 @@
-type EventMap = {
+export type EventMap = {
   [k: string]: object | undefined;
 };
 
 type OptionalArg<T> = T extends undefined ? [] : [T];
+
+export type EventEmitter = ReturnType<typeof createEventEmitter>
 
 export function createEventEmitter<T extends EventMap>() {
   type EventType = keyof T;
